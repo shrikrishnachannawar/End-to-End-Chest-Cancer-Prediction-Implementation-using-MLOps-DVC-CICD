@@ -1180,3 +1180,37 @@ Exception encountered: Unrecognized keyword arguments: ['batch_shape']
 [2025-06-03 20:06:50,821: INFO: _internal: 127.0.0.1 - - [03/Jun/2025 20:06:50] "GET / HTTP/1.1" 200 -]
 [2025-06-03 20:06:57,987: INFO: _internal: 127.0.0.1 - - [03/Jun/2025 20:06:57] "POST /predict HTTP/1.1" 200 -]
 [2025-06-03 20:07:12,445: INFO: _internal: 127.0.0.1 - - [03/Jun/2025 20:07:12] "POST /predict HTTP/1.1" 200 -]
+[2025-06-07 15:05:46,498: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.37:8080]
+[2025-06-07 15:05:46,498: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2025-06-07 15:05:53,391: INFO: _internal: 127.0.0.1 - - [07/Jun/2025 15:05:53] "GET / HTTP/1.1" 200 -]
+[2025-06-07 15:06:00,225: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\flask_cors\decorator.py", line 130, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "E:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\app.py", line 43, in predictRoute
+    result = clApp.classifier.predict()
+  File "e:\final_year_project\end-to-end-chest-cancer-prediction-implementation-using-mlops-dvc-cicd\src\cnnClassifier\pipeline\prediction.py", line 15, in predict
+    model = load_model(os.path.join("models", "vgg16_chest_cancer.h5"))
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\keras\saving\saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "e:\Final_year_project\End-to-End-Chest-Cancer-Prediction-Implementation-using-MLOps-DVC-CICD\.conda\lib\site-packages\keras\engine\base_layer.py", line 870, in from_config
+    raise TypeError(
+TypeError: Error when deserializing class 'InputLayer' using config={'batch_shape': [None, 224, 224, 3], 'dtype': 'float32', 'sparse': False, 'name': 'input_layer'}.
+
+Exception encountered: Unrecognized keyword arguments: ['batch_shape']
+[2025-06-07 15:06:00,366: INFO: _internal: 127.0.0.1 - - [07/Jun/2025 15:06:00] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]

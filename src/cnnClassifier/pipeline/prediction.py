@@ -12,7 +12,7 @@ class PredictionPipeline:
     def predict(self):
         ## load model
         #model = load_model(os.path.join("artifacts","training", "vgg16_chest_cancer.h5"), compile=False)
-        model = load_model(os.path.join("model", "vgg16_chest_cancer.h5"))
+        model = load_model(os.path.join("models", "vgg16_chest_cancer.h5"))
 
         imagename = self.filename
         test_image = image.load_img(imagename, target_size = (224,224))
